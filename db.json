@@ -1,0 +1,151 @@
+{
+  "usersList": [
+    {
+      "id": 1,
+      "name": "ann",
+      "email": "ann@gmail.com",
+      "age": "55",
+      "country": "Belize"
+    },
+    {
+      "id": 2,
+      "name": "Masha",
+      "email": "masha@gmail.com",
+      "age": 32,
+      "country": "Austria"
+    },
+    {
+      "id": 3,
+      "name": "Jon",
+      "email": "jon@gmail.com",
+      "age": 50,
+      "country": "USA"
+    },
+    {
+      "id": 4,
+      "name": "Rodrigo",
+      "email": "chilly@gmail.com",
+      "age": 18,
+      "country": "Chilly"
+    },
+    {
+      "id": 5,
+      "name": "Alice",
+      "email": "alice@gmail.com",
+      "age": 12,
+      "country": "Chilly"
+    },
+    {
+      "id": 6,
+      "name": "Kate",
+      "email": "kate@gmail.com",
+      "age": 60,
+      "country": "England"
+    },
+    {
+      "id": 7,
+      "name": "Mete",
+      "email": "mete@gmail.com",
+      "age": 23,
+      "country": "USA"
+    },
+    {
+      "id": 8,
+      "name": "Olga",
+      "email": "olga@gmail.com",
+      "age": 42,
+      "country": "Angola"
+    },
+    {
+      "id": 9,
+      "name": "Ivan",
+      "email": "ivan@gmail.com",
+      "age": 5,
+      "country": "Belarus"
+    },
+    {
+      "id": 10,
+      "name": "Dzmitriy",
+      "email": "dzmitry@gmail.com",
+      "age": 35,
+      "country": "Belarus"
+    },
+    {
+      "id": 11,
+      "name": "oleg",
+      "email": "csdvsv@svsv.sf",
+      "country": "China",
+      "age": "23"
+    },
+    {
+      "id": 12,
+      "name": "oleg",
+      "email": "csdvsv@svsv.sf",
+      "country": "China",
+      "age": "23"
+    },
+    {
+      "id": 13,
+      "name": "oleg",
+      "email": "csdvsv@svsv.sf",
+      "country": "China",
+      "age": "23"
+    },
+    {
+      "id": 14,
+      "name": "vddf",
+      "email": "sdvsvs",
+      "country": "Cameroon",
+      "age": "46"
+    },
+    {
+      "id": 15,
+      "name": "lkn",
+      "email": "njknknkj",
+      "country": "Afghanistan",
+      "age": "45"
+    },
+    {
+      "id": 16,
+      "name": "ss",
+      "email": "ff",
+      "country": "dff",
+      "age": "55"
+    },
+    {
+      "id": 17,
+      "name": "sdcsd",
+      "email": "cs",
+      "country": "sdvs",
+      "age": "55"
+    },
+    {
+      "id": 18,
+      "name": "diana",
+      "email": "csds",
+      "country": "sdvs",
+      "age": "45"
+    },
+    {
+      "id": 19,
+      "name": "Alex",
+      "email": "alex@dvdfvdfv.vf",
+      "country": "China",
+      "age": "99"
+    },
+    {
+      "id": 20,
+      "name": "Daria",
+      "email": "daria@fdfsfdsdf.sdf",
+      "country": "Ukraine",
+      "age": "23"
+    }
+  ],
+  "countries": [
+    "Russia",
+    "USA",
+    "Belarus",
+    "England",
+    "Chilly"
+  ]
+}
