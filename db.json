@@ -33,7 +33,7 @@
       "name": "Alice",
       "email": "alice@gmail.com",
       "age": 12,
-      "country": "Chilly"
+      "country": "Afghanistan"
     },
     {
       "id": 6,
@@ -93,59 +93,24 @@
     },
     {
       "id": 14,
-      "name": "vddf",
-      "email": "sdvsvs",
-      "country": "Cameroon",
-      "age": "46"
-    },
-    {
-      "id": 15,
-      "name": "lkn",
-      "email": "njknknkj",
-      "country": "Afghanistan",
-      "age": "45"
-    },
-    {
-      "id": 16,
-      "name": "ss",
-      "email": "ff",
-      "country": "dff",
-      "age": "55"
-    },
-    {
-      "id": 17,
-      "name": "sdcsd",
-      "email": "cs",
-      "country": "sdvs",
-      "age": "55"
-    },
-    {
-      "id": 18,
-      "name": "diana",
-      "email": "csds",
-      "country": "sdvs",
-      "age": "45"
-    },
-    {
-      "id": 19,
       "name": "Alex",
       "email": "alex@dvdfvdfv.vf",
       "country": "China",
       "age": "99"
     },
     {
-      "id": 20,
+      "id": 15,
       "name": "Daria",
       "email": "daria@fdfsfdsdf.sdf",
       "country": "Ukraine",
       "age": "23"
+    },
+    {
+      "id": 16,
+      "name": "sun",
+      "email": "fddfdf@dfgdfg.df",
+      "country": "Algeria",
+      "age": "05"
     }
   ],
-  "countries": [
-    "Russia",
-    "USA",
-    "Belarus",
-    "England",
-    "Chilly"
-  ]
 }

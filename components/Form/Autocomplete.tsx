@@ -13,14 +13,22 @@ const Autocomplete = ({ country, handleChange }: AutocompleteProps): JSX.Element
     const [ error, setError ] = useState(false);
 
     const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setChangedValue(event.target.value);
+        setChangedValue(event.target.value.replace(/[^a-zA-Z\s]/ig, ''));
         handleChange(event.target.value, 'country');
         setError(false);
     };
 
     return (
         <>
-            <input className={classes.input} list='countries' id='country-choice' name='country-choice' placeholder='country' value={changedValue} onChange={handleChangeInput}/>
+            <input 
+                required={true}
+                className={classes.input}
+                list='countries'
+                id='country-choice'
+                name='country-choice'
+                placeholder='country'
+                value={changedValue}
+                onChange={handleChangeInput}/>
             <datalist id='countries'>
                 {countries.map((country) => {
                     return <option key={country} value={country} />
