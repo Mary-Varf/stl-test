@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import FormRow from './FormRow';
 import { UserData } from '../../types/types';
 import ErrorMessage from '../ErrorMessage';
@@ -27,12 +27,20 @@ const useStyles = createUseStyles({
         flexDirection: 'column',
         justifyContent: 'center',
     },
+    button__disable: {
+        background: 'grey',
+        '&:hover': {
+            boxShadow: 'none',
+            cursor: 'not-allowed'
+        },
+    }
 });
 
 const Form = ({ userData }: FormParams): JSX.Element => {
     const classes = useStyles();
     const [user, setUser] = useState(userData);
     const [error, setError] = useState(false);
+    const [inputErrors, setInputErrors] = useState({name: false, country: false, age: false, email: false});
     const [success, setSuccess] = useState(false);
     const [messageType, setMessageType] = useState('');
 
@@ -44,7 +52,7 @@ const Form = ({ userData }: FormParams): JSX.Element => {
             delete user[0];
         }
 
-        const putData = async (user: UserData) => {
+        const sendData = async (user: UserData) => {
                 const response = await fetch(url, {
                     method,
                     headers: {
@@ -71,17 +79,22 @@ const Form = ({ userData }: FormParams): JSX.Element => {
                 setUser(updatedUser);
                 window.location.assign('http://localhost:3000/users/' + updatedUser.id)
         }
-        putData(user)
+        sendData(user)
     };
-    const handleChange = (value: string, label: string) => {
+    const handleChange = (value: string, label: string, error: boolean) => {
         setUser({...user, [label]: value});
+        setInputErrors({...inputErrors, [label]: error});
     };
+
+    useEffect(() => {
+        console.log(inputErrors);
+    }, [user])
+
     const handleClose = (): void => {
         setError(false);
         setMessageType('');
         setSuccess(false);
     };
-
     return (
         <>
             {(error || success) ? <ErrorMessage messageType={messageType} handleClose={handleClose}/>: <></>}
@@ -92,7 +105,7 @@ const Form = ({ userData }: FormParams): JSX.Element => {
                     );
                 })}
                 <div className={classes.button__block}>
-                    <button type='submit' className='button' value='Save form' disabled={success}>Save form</button>
+                    <button type='submit' className={'button ' + (Object.values(inputErrors).includes(true) ? classes.button__disable : '')} disabled={Object.values(inputErrors).includes(true)}>Save form</button>
                 </div>
             </form>
         </>

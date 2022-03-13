@@ -3,7 +3,7 @@ import { useStyles } from './styles';
 
 interface AutocompleteProps {
     country: string;
-    handleChange: (value: string, label: string) => void,
+    handleChange: (value: string, label: string, error: boolean) => void,
 };
 
 const Autocomplete = ({ country, handleChange }: AutocompleteProps): JSX.Element => {
@@ -13,16 +13,21 @@ const Autocomplete = ({ country, handleChange }: AutocompleteProps): JSX.Element
     const [ error, setError ] = useState(false);
 
     const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
-        setChangedValue(event.target.value.replace(/[^a-zA-Z\s]/ig, ''));
-        handleChange(event.target.value, 'country');
-        setError(false);
+        const country = event.target.value;
+        setChangedValue(country.replace(/[^a-zA-Z\s]/ig, ''));
+        handleChange(country, 'country', error);
+        if (country.length > 0) {
+            setError(false);
+        } else {
+            setError(true);
+        }
     };
 
     return (
         <>
             <input 
                 required={true}
-                className={classes.input}
+                className={error ? classes.error : classes.input}
                 list='countries'
                 id='country-choice'
                 name='country-choice'

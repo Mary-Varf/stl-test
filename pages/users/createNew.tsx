@@ -8,9 +8,11 @@ const CreateNew = (): JSX.Element => {
     return (
         <>
             <Header keywords=''/>
-            <div className='container'>
-                <h2>Create New User</h2>
-                <Form userData={initialState}/>
+            <div className='main'>
+                <div className='container'>
+                    <h2>Create New User</h2>
+                    <Form userData={initialState}/>
+                </div>
             </div>
         </>
     ); 

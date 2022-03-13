@@ -6,7 +6,7 @@ import { useStyles } from './styles';
 interface FormRowProps {
     value: string,
     label: string,
-    handleChange: (value: string, label: string) => void,
+    handleChange: (value: string, label: string, error: boolean) => void,
 };
 
 const FormRow = ({ label, value, handleChange }: FormRowProps): JSX.Element => {
@@ -17,8 +17,16 @@ const FormRow = ({ label, value, handleChange }: FormRowProps): JSX.Element => {
     let disabled = false;
 
     const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        let inputError = false;
         if (label === 'name') {
-            setChangedValue(event.target.value.replace(/[^a-zA-Z\s]{2,}/ig, ''));
+            const name = event.target.value;
+            if (name.length >= 2 && name.length < 50) {
+                setError(false);
+            } else {
+                setError(true);
+                inputError = true;
+            }
+            setChangedValue(name);
         }
         if (label === 'age') {
             const regExp = /[^0-9]/ig;
@@ -27,20 +35,21 @@ const FormRow = ({ label, value, handleChange }: FormRowProps): JSX.Element => {
                 setError(false);
             } else {
                 setError(true);
+                inputError = true;
             }
             setChangedValue(String(age));
         }
         if (label === 'email') {
             const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            console.log(regExp.test(event.target.value))
             if (!regExp.test(event.target.value)) {
                 setError(true);
+                inputError = true;
             } else {
                 setError(false);
             }
             setChangedValue(event.target.value);
         }
-        handleChange(event.target.value, label);
+        handleChange(event.target.value, label, inputError);
     };
     if (label === 'id') {
         required = true;
