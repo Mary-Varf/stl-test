@@ -6,7 +6,8 @@ class MyDocument extends Document {
     const generateId = createGenerateId();
     const originalRenderPage = ctx.renderPage;
     ctx.renderPage = () =>
-      originalRenderPage({
+      originalRenderPage({        
+        // eslint-disable-next-line react/display-name
         enhanceApp: (App: any) => (props: any) => (
           <JssProvider registry={registry} generateId={generateId}>
             <App {...props} />
