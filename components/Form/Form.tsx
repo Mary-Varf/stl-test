@@ -34,7 +34,6 @@ const Form = ({ userData }: FormParams): JSX.Element => {
     const [user, setUser] = useState(userData);
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [deleteSuccess, setDeleteSuccess] = useState(false);
     const [messageType, setMessageType] = useState('');
 
     const handleSave = (event: React.FormEvent<HTMLFormElement>): void => {
@@ -85,7 +84,7 @@ const Form = ({ userData }: FormParams): JSX.Element => {
 
     return (
         <>
-            {(error || success || deleteSuccess) ? <ErrorMessage messageType={messageType} handleClose={handleClose}/>: <></>}
+            {(error || success) ? <ErrorMessage messageType={messageType} handleClose={handleClose}/>: <></>}
             <form id='form' className={classes.user_card} onSubmit={handleSave}>
                 {Object.keys(user).map((key) => {
                     return (
