@@ -87,7 +87,6 @@ const Form = ({ userData }: FormParams): JSX.Element => {
     };
 
     useEffect(() => {
-        console.log(inputErrors);
     }, [user])
 
     const handleClose = (): void => {
