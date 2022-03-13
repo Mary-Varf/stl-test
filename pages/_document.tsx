@@ -19,7 +19,7 @@ class MyDocument extends Document {
       styles: (
         <>
           {initialProps.styles}
-          <style id="server-side-styles">{registry.toString()}</style>
+          <style id="serverSideStyles">{registry.toString()}</style>
         </>
       ),
     };

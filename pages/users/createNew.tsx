@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import { UserData } from '../../types/types';
 
 const CreateNew = (): JSX.Element => {
-    const initialState: UserData = {id: null, name: '', email: '', country: '', age: null};
+    const initialState: UserData = { id: null, name: '', email: '', country: '', age: null };
 
     return (
         <>

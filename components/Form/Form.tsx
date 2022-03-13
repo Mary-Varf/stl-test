@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import FormRow from './FormRow';
 import { UserData } from '../../types/types';
-import ErrorMessage from '../ErrorMessage';
+import Popup from './Popup';
 import { createUseStyles } from 'react-jss';
 
 interface FormParams {
@@ -53,50 +53,52 @@ const Form = ({ userData }: FormParams): JSX.Element => {
         }
 
         const sendData = async (user: UserData) => {
-                const response = await fetch(url, {
-                    method,
-                    headers: {
-                      "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(user)
-                  });;
-                if (!response.ok) {
-                    setMessageType('');
-                    setError(true);
-                    setMessageType('error');
-                    setSuccess(false);
+            const response = await fetch(url, {
+                method,
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(user)
+                });;
+            if (!response.ok) {
+                setMessageType('');
+                setError(true);
+                setMessageType('error');
+                setSuccess(false);
+            } else {
+                setMessageType('');
+                setError(false);
+                setSuccess(true);
+                if (user.id) {
+                    setMessageType('updated');
                 } else {
-                    setMessageType('');
-                    setError(false);
-                    setSuccess(true);
-                    if (user.id) {
-                        setMessageType('updated');
-                    } else {
-                        setMessageType('created');
-                    }
+                    setMessageType('created');
                 }
-                const updatedUser = await response.json();
-                setUser(updatedUser);
-                window.location.assign('http://localhost:3000/users/' + updatedUser.id)
+            }
+            const updatedUser = await response.json();
+
+            setUser(updatedUser);
+            window.location.assign('http://localhost:3000/users/' + updatedUser.id)
         }
         sendData(user)
     };
+    
     const handleChange = (value: string, label: string, error: boolean) => {
         setUser({...user, [label]: value});
         setInputErrors({...inputErrors, [label]: error});
     };
 
-    useEffect(() => {
-    }, [user])
+    useEffect(() =>{}, [user])
 
     const handleClose = (): void => {
         setError(false);
         setMessageType('');
         setSuccess(false);
     };
+
     return (
         <>
-            {(error || success) ? <ErrorMessage messageType={messageType} handleClose={handleClose}/>: <></>}
+            {(error || success) ? <Popup messageType={messageType} handleClose={handleClose}/>: <></>}
             <form id='form' className={classes.user_card} onSubmit={handleSave}>
                 {Object.keys(user).map((key) => {
                     return (

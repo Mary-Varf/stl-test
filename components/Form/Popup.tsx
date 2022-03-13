@@ -35,14 +35,15 @@ const useStyles = createUseStyles({
     }
 });
 
-interface ErrorMessageProps {
+interface PopupProps {
     handleClose: () => void,
     messageType: string,
 };
 
-const ErrorMessage = ({ messageType, handleClose }: ErrorMessageProps) => {
+const Popup = ({ messageType, handleClose }: PopupProps) => {
     const classes = useStyles();
     let message = 'Sorry, something went wrong, please try again';
+    
     if (messageType === 'created') {
         message = 'Great! New user have saved';
     } else if (messageType === 'deleted') {
@@ -60,4 +61,4 @@ const ErrorMessage = ({ messageType, handleClose }: ErrorMessageProps) => {
     );
 };
 
-export default ErrorMessage;
+export default Popup;

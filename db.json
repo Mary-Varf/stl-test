@@ -11,8 +11,8 @@
       "id": 2,
       "name": "Masha44",
       "email": "masha@gmail.com",
-      "age": "32-",
-      "country": "Austria6"
+      "age": "32",
+      "country": "Austria"
     },
     {
       "id": 3,
@@ -79,38 +79,31 @@
     },
     {
       "id": 12,
-      "name": "oleg",
-      "email": "csdvsv@svsv.sf",
-      "country": "China",
-      "age": "23"
-    },
-    {
-      "id": 13,
-      "name": "oleg",
-      "email": "csdvsv@svsv.sf",
-      "country": "China",
-      "age": "23"
-    },
-    {
-      "id": 14,
       "name": "Alex",
       "email": "alex@dvdfvdfv.vf",
       "country": "China",
       "age": "99"
     },
     {
-      "id": 15,
+      "id": 13,
       "name": "Daria",
       "email": "daria@fdfsfdsdf.sdf",
       "country": "Ukraine",
       "age": "23"
     },
     {
-      "id": 16,
+      "id": 14,
       "name": "sun",
       "email": "fddfdf@dfgdfg.df",
       "country": "Algeria",
       "age": "05"
+    },
+    {
+      "id": 15,
+      "name": "Ivan",
+      "email": "ivan@gmail.sd",
+      "country": "Ukraine",
+      "age": "40"
     }
   ]
 }

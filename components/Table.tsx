@@ -47,9 +47,9 @@ const useStyles = createUseStyles({
 
 const Table = ({ users }: TableProps) => {
     const classes = useStyles();
+    const thList = ['id', 'name', 'email', 'age', 'country'];
     const [ sortConfig, setSortConfig ] = useState({} as SortConfig);
     const [ sortedUsers, setSortedUsers] = useState(users as UserData[]);
-    const thList = ['id', 'name', 'email', 'age', 'country'];
 
     const handleSortABS = (key: string): void => {
         const direction = sortConfig.direction === 'asc' ? 'des' : 'acs';
@@ -96,7 +96,7 @@ const Table = ({ users }: TableProps) => {
                                 onClick={() => handleSortDES(keyName)}
                             >↓
                             </button>
-                            {keyName}
+                            <p>{keyName}</p>
                         </div>
                     </th>
                   );
@@ -104,15 +104,15 @@ const Table = ({ users }: TableProps) => {
           </tr>
         </thead>
         <tbody>
-          {sortedUsers.map((user) => (
-            <tr key={user.id}>
-              <Link href={'/users/' + user.id}><td>{user.id}</td></Link>
-              <Link href={'/users/' + user.id}><td>{user.name}</td></Link>
-              <Link href={'/users/' + user.id}><td>{user.email}</td></Link>
-              <Link href={'/users/' + user.id}><td>{user.age}</td></Link>
-              <Link href={'/users/' + user.id}><td>{user.country}</td></Link>
-            </tr>
-          ))}
+            {sortedUsers.map((user) => (
+                <tr key={user.id}>
+                    <Link href={'/users/' + user.id}><td>{user.id}</td></Link>
+                    <Link href={'/users/' + user.id}><td>{user.name}</td></Link>
+                    <Link href={'/users/' + user.id}><td>{user.email}</td></Link>
+                    <Link href={'/users/' + user.id}><td>{user.age}</td></Link>
+                    <Link href={'/users/' + user.id}><td>{user.country}</td></Link>
+                </tr>
+            ))}
         </tbody>
       </table>
     );  
